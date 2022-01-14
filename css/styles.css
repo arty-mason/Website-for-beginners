@@ -477,12 +477,20 @@ textarea {
       url("../fonts/lato-v20-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+/* ------------------------ STARTING THE LAYOUT ------------------------------ */
 html {
   box-sizing: border-box;
   /* By adding 'box-sizing' parameter with 'border-box' value we set a rule which doesn't allow padding to change the size of the element */
 }
 
-/* ------------------------ STARTING THE LAYOUT ------------------------------ */
+body {
+  font-family: "Lato";
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: normal;
+  color: #102746;
+}
 
 *,
 *::before,
@@ -498,6 +506,61 @@ html {
   /* Centering all the content */
 }
 
+/* ------------------------------- HEADER ----------------------------------- */
+
 header {
-  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header__logo {
+}
+.header__logo-link {
+}
+.header__logo-pic {
+}
+.header__nav {
+}
+
+.header__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 56px;
+}
+
+.header__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header__item:not(:last-child) {
+  margin-right: 82px;
+  /* K.I.S.S. */
+}
+
+.header__link {
+  font-size: 18px;
+  line-height: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.header__link:hover,
+.header__link:focus,
+.header__link:active {
+  opacity: 75%;
+}
+
+/* ------------------------------- INTRO ----------------------------------- */
+
+.intro {
+  height: 100vh;
+  background: url(../img/intro_bg.jpg) no-repeat center;
+  /* Adding no repeat allows not to duplicat the background pic on next poges */
+  background-size: cover;
+  /* Allowing the pic to cover the page completely regardless of its size */
 }
