@@ -511,6 +511,32 @@ img {
   /* Centering all the content */
 }
 
+.wrapper__full {
+  max-width: 1262px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 42px;
+  position: relative;
+  /* Setting a relative position to the parent container to have absolute position in the pseudoelement */
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  display: block;
+  content: "";
+  /* Creating content property for it to display on the screen */
+  width: 253px;
+  height: 3px;
+  background-color: #006dfe;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 /* ------------------------------- HEADER ----------------------------------- */
 
 header {
@@ -569,6 +595,8 @@ header {
   background-size: cover;
   /* Allowing the pic to cover the page completely regardless of its size */
   padding-top: 263px;
+  padding-bottom: 223px;
+  /* Creating a safe padding for the main title not to be overlayed by a big ammount of content. Calculations: title height (42px) + padding-top (93px) + padding-bottom (88px) = 223px */
 }
 
 .intro__title {
@@ -718,4 +746,120 @@ header {
 .benefits__card-more:hover,
 .benefits__card-more:focus {
   background: url(../img/svg/arrow-right-icon.svg) no-repeat right center;
+}
+
+/* ----------------------------------------- PLACES ----------------------------------------- */
+.places {
+  margin-bottom: 131px;
+}
+
+.wrapper__full {
+}
+
+.places__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.places__title {
+  margin-right: 15px;
+}
+
+.places__view-all {
+  padding-right: 59px;
+  font-size: 16px;
+  color: #006dfe;
+  text-decoration: none;
+  background: url(../img/svg/arrow-right-icon.svg) no-repeat right center;
+}
+
+.places__view-all:hover,
+.places__view-all:focus {
+  opacity: 0.65;
+}
+
+.places__cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* Creating 6 grid columns with the size of 1fr */
+  grid-gap: 10px;
+  /* The amount of space between the cards */
+}
+
+.places__card {
+  position: relative;
+  /* To add a pseudoelement later on */
+  overflow: hidden;
+  /* To avoid the hover crossing going out of the container frame, we use "overflow: hidden" */
+}
+
+.places__card::after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 24, 36, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  /* Creating a pseudoelement that will "darken"  pictures as in the original layout (overlay) */
+}
+
+.places__card:hover .places__card-pic {
+  transform: scale(1.05);
+  /* Making the picture increase it's size by 105% while hovering over it */
+}
+
+.places__card-title {
+  font-size: 50px;
+  line-height: 60px;
+  color: #fff;
+  position: absolute;
+  bottom: 27px;
+  left: 29px;
+  z-index: 3;
+  /* Overlaying the title over pseudoelement for it not to be darkened */
+}
+
+.places__card_size_lg {
+  grid-column: span 3;
+  /* Allowing each of the upper row columns to take up the space of 3 cards per 6-grid row  */
+}
+
+.places__card_size_sm {
+  grid-column: span 2;
+  /* Changing the sizing of the bottom row columns to 2 cards per 6-grid row */
+}
+
+.places__card-pic {
+  width: 100%;
+  /* Letting the picture take up the whole width of its container*/
+  transition: 0.15s;
+  /* Setting a slight transition for the picture to gradually change its size */
+}
+
+.places__card-pic_size_lg {
+  height: 354px;
+  /* Limiting the height of the picture*/
+  object-fit: cover;
+  /* Manipulating the behavior of the picture inside its container and making sure the proportions will stay the same after resizing*/
+}
+
+.places__card-pic_size_sm {
+  height: 283px;
+  object-fit: cover;
+}
+
+.places__card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  /* Placing the link over all the layers by increasing its z-index */
 }
