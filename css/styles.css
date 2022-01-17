@@ -1,4 +1,4 @@
-/* ----------------------------RESETTING CSS---------------------------------- */
+/* ----------------------------------- RESETTING CSS ----------------------------------------- */
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
@@ -447,7 +447,7 @@ textarea {
   padding: 0.2em 0;
 }
 
-/* --------------------------DOWNLOADING FONTS-------------------------------- */
+/* ------------------------------------DOWNLOADING FONTS------------------------------------- */
 
 /* lato-regular - latin */
 @font-face {
@@ -477,7 +477,8 @@ textarea {
       url("../fonts/lato-v20-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* ------------------------ STARTING THE LAYOUT ------------------------------ */
+/* -------------------------------- STARTING THE LAYOUT -------------------------------------- */
+
 html {
   box-sizing: border-box;
   /* By adding 'box-sizing' parameter with 'border-box' value we set a rule which doesn't allow padding to change the size of the element */
@@ -546,15 +547,6 @@ header {
   width: 100%;
 }
 
-.header__logo {
-}
-.header__logo-link {
-}
-.header__logo-pic {
-}
-.header__nav {
-}
-
 .header__wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -614,12 +606,6 @@ header {
   line-height: 24px;
   max-width: 546px;
   margin-bottom: 59px;
-}
-
-.search-form {
-}
-
-.search-form__wrap {
 }
 
 .search-form__info {
@@ -749,11 +735,9 @@ header {
 }
 
 /* ----------------------------------------- PLACES ----------------------------------------- */
+
 .places {
   margin-bottom: 131px;
-}
-
-.wrapper__full {
 }
 
 .places__caption {
@@ -862,4 +846,58 @@ header {
   height: 100%;
   z-index: 4;
   /* Placing the link over all the layers by increasing its z-index */
+}
+
+/* ------------------------------------------- TOUR ----------------------------------------- */
+
+.tours {
+  margin-bottom: 139px;
+}
+
+.tours__tour {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0 108px;
+  /* Setting up and bottom gap to 0, and the sides to 108px */
+  align-items: center;
+}
+
+.tour {
+  margin-bottom: 77px;
+}
+
+.tour__pic {
+}
+
+.tour__thumb {
+}
+
+.tour__info {
+  padding-left: 47px;
+}
+
+.tour__title {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 85px;
+}
+
+.tour__desc {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 58px;
+}
+
+.tour__more {
+  padding-right: 59px;
+  font-size: 16px;
+  color: #006dfe;
+  text-decoration: none;
+  background: url(../img/svg/arrow-right-icon.svg) no-repeat right center;
+}
+
+.tour__more:hover,
+.tour__more:focus {
+  opacity: 0.65;
 }
