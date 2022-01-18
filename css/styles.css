@@ -510,11 +510,14 @@ img {
   /* Giving the wraper limiting width */
   margin: 0 auto;
   /* Centering all the content */
+  padding: 0 15px;
 }
 
 .wrapper__full {
   max-width: 1262px;
   margin: 0 auto;
+  padding: 0 15px;
+  /* Avoiding content "sticking" to the borders by adding side padding */
 }
 
 .section-title {
@@ -524,6 +527,7 @@ img {
   position: relative;
   /* Setting a relative position to the parent container to have absolute position in the pseudoelement */
   padding-bottom: 10px;
+  /* See above */
 }
 
 .section-title::after {
@@ -585,7 +589,40 @@ header {
   opacity: 75%;
 }
 
-/* ------------------------------- INTRO ----------------------------------- */
+.header__burger {
+  display: none;
+  /* Not showing it in desktop browsers and using a media later to display it */
+  width: 40px;
+  height: 28px;
+  position: relative;
+}
+
+.burger__line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+}
+
+.burger__line_first {
+  top: 0;
+  /* Gluing the first line to the top */
+}
+
+.burger__line_second {
+  top: 50%;
+  transform: translateY(-50%);
+  /* Moving it to the middle of the container and adjusting height a bit */
+}
+
+.burger__line_third {
+  bottom: 0;
+  /* Gluing the third line to the bottom */
+}
+
+/* ----------------------------------------- INTRO ----------------------------------------- */
 
 .intro {
   min-height: 100vh;
@@ -1059,4 +1096,66 @@ header {
 .footer__menu-link:active {
   opacity: 0.75;
 }
-/* --------------------------------------------------------------------------------------- */
+
+/* ---------------------------------------- MEDIA ---------------------------------------- */
+
+@media (max-width: 766px) {
+  .header__burger {
+    display: block;
+  }
+  .header__nav {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    z-index: 10;
+    padding: 75px;
+    transform: translateX(100%);
+    /* Moving the nav by 100% of its width so that it displays the header */
+  }
+  .header__nav_active {
+    transform: translateX(0);
+    /* Changing the nav position to give way to mini-menu with X on click */
+    transition: 0.2s linear;
+    /* Creating a smooth transition for the mobile menu effect */
+  }
+  .header__item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  .header__item:last-child {
+    margin-bottom: 0;
+  }
+  .header__link {
+    font-size: 42px;
+    line-height: 48px;
+  }
+  .header__nav-close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 11;
+  }
+  .header__nav-close-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    /* Displaying the lines that will become an X */
+  }
+  .header__nav-close-line:first-child {
+    transform: translateY(-50%) rotate(45deg);
+    /* Doing a similar operation as with the burger + rotating the first line by 45 degrees */
+  }
+  .header__nav-close-line:last-child {
+    transform: translateY(-50%) rotate(-45deg);
+    /* Rotating the second line backwards by 45%  for it to become horizontal X */
+  }
+}
