@@ -1,4 +1,4 @@
-/* ----------------------------------- RESETTING CSS ----------------------------------------- */
+/* ----------------------------------- RESETTING CSS --------------------------------------- */
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
@@ -447,7 +447,7 @@ textarea {
   padding: 0.2em 0;
 }
 
-/* ------------------------------------DOWNLOADING FONTS------------------------------------- */
+/* -----------------------------------DOWNLOADING FONTS------------------------------------- */
 
 /* lato-regular - latin */
 @font-face {
@@ -477,7 +477,7 @@ textarea {
       url("../fonts/lato-v20-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* -------------------------------- STARTING THE LAYOUT -------------------------------------- */
+/* -------------------------------- STARTING THE LAYOUT ------------------------------------ */
 
 html {
   box-sizing: border-box;
@@ -542,7 +542,7 @@ img {
   left: 0;
 }
 
-/* ------------------------------- HEADER ----------------------------------- */
+/* --------------------------------------- HEADER ------------------------------------------ */
 
 header {
   position: fixed;
@@ -693,7 +693,7 @@ header {
   background: #0e66da;
   /* Changing the hover, click and select colors by adding a darker one */
 }
-/* ---------------------------------- BENEFITS -------------------------------------- */
+/* -------------------------------------- BENEFITS ---------------------------------------- */
 
 .benefits {
   margin-bottom: 131px;
@@ -727,7 +727,7 @@ header {
   /* Making the element display in the grid format*/
   grid-template-columns: repeat(3, 1fr);
   /* "grid-template-columns" sets the number of columns in the grid and defines their width */
-  grid-column-gap: 55px;
+  column-gap: 55px;
   /* Sets the gutters (space) between the columns */
   padding: 0 100px;
 }
@@ -754,7 +754,7 @@ header {
   line-height: 24px;
   margin-bottom: 26px;
 }
-.benefits__card-description {
+.benefits__card-desc {
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 39px;
@@ -778,7 +778,7 @@ header {
   background: url(../img/svg/arrow-right-icon.svg) no-repeat right center;
 }
 
-/* ----------------------------------------- PLACES ----------------------------------------- */
+/* --------------------------------------- PLACES ----------------------------------------- */
 
 .places {
   margin-bottom: 131px;
@@ -813,7 +813,8 @@ header {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   /* Creating 6 grid columns with the size of 1fr */
-  grid-gap: 10px;
+  column-gap: 10px;
+  row-gap: 10px;
   /* The amount of space between the cards */
 }
 
@@ -892,7 +893,7 @@ header {
   /* Placing the link over all the layers by increasing its z-index */
 }
 
-/* ------------------------------------------- TOUR ----------------------------------------- */
+/* ----------------------------------------- TOUR ----------------------------------------- */
 
 .tours {
   margin-bottom: 139px;
@@ -901,7 +902,7 @@ header {
 .tours__tour {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 0 108px;
+  column-gap: 108px;
   /* Setting up and bottom gap to 0, and the sides to 108px */
   align-items: center;
 }
@@ -940,7 +941,7 @@ header {
   opacity: 0.65;
 }
 
-/* ---------------------------------------- TOP PLACES---------------------------------------- */
+/* -------------------------------------- TOP PLACES---------------------------------------- */
 
 .top {
   margin-bottom: 86px;
@@ -952,13 +953,16 @@ header {
 
 .top__cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 57px;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 57px;
+  row-gap: 57px;
 }
 
 .top__card {
   display: flex;
   flex-direction: column;
+  grid-column: span 2;
+  /* Allowing each column to take up the space of 2  */
 }
 
 .top__card-pic {
@@ -1099,9 +1103,73 @@ header {
 
 /* ---------------------------------------- MEDIA ---------------------------------------- */
 
-@media (max-width: 766px) {
+/* ----------------------------------------- 960px -------------------------------------- */
+@media (max-width: 960px) {
+  .benefits {
+    margin-bottom: 75px;
+  }
+  .search-form__field {
+    margin-bottom: 25px;
+  }
+  .benfits__cards {
+    column-gap: 35px;
+    padding: 0 15px;
+  }
+  .benfits__card {
+    margin-bottom: 60px;
+  }
+  .benefits__title {
+    padding: 55px 15px;
+  }
+  .benefits__wrapper {
+    box-shadow: none;
+  }
+  .places__card_size_lg,
+  .places__card_size_sm {
+    grid-column: span 6;
+    /* Stretching the images to screen ends 
+    ! K.I.S.S. */
+  }
+  .tours__tour {
+    column-gap: 35px;
+  }
+  .tour__info {
+    padding-left: 0;
+  }
+  .tour__title,
+  .tour__desc {
+    margin-bottom: 15px;
+    /* ! K.I.S.S. */
+  }
+  .top__cards {
+    column-gap: 25px;
+    row-gap: 55px;
+  }
+  .top__card {
+    grid-column: span 3;
+    /* Limiting the amount of columns per row to 2 */
+  }
+  .top__card-pic {
+    margin-bottom: 25px;
+  }
+  .footer {
+    padding: 60px 0;
+  }
+}
+
+/* ----------------------------------------- 767px -------------------------------------- */
+@media (max-width: 767px) {
+  .section-title {
+    margin-bottom: 25px;
+  }
+  .section-title::after {
+    width: 78px;
+  }
   .header__burger {
     display: block;
+  }
+  .header__wrapper {
+    padding-top: 28px;
   }
   .header__nav {
     width: 100%;
@@ -1157,5 +1225,105 @@ header {
   .header__nav-close-line:last-child {
     transform: translateY(-50%) rotate(-45deg);
     /* Rotating the second line backwards by 45%  for it to become horizontal X */
+  }
+  .intro {
+    padding-top: 125px;
+  }
+  .intro__title {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  .intro__subtitle {
+    font-size: 14px;
+  }
+  .search-form__field {
+    margin-right: 0;
+    width: 100%;
+    padding-bottom: 12px;
+    background: transparent url(../img/svg/circle-icon.svg) no-repeat left top
+      2px;
+  }
+  .search-form__field::placeholder {
+    font-size: 16px;
+  }
+  .search-form__submit {
+    width: 100%;
+  }
+  .benefits {
+    margin-bottom: 36px;
+  }
+  .benefits__card {
+    grid-column: span 3;
+    margin-bottom: 40px;
+  }
+  .benefits__card-pic,
+  .benefits__card-desc {
+    margin-bottom: 20px;
+    /* ! K.I.S.S. */
+  }
+  .benefits__card-title {
+    margin-bottom: 12px;
+  }
+  .places {
+    margin-bottom: 76px;
+  }
+  .places__card-pic_size_lg,
+  .places__card-pic_size_sm {
+    height: 230px;
+  }
+  .places__view-all {
+    margin-bottom: 25px;
+  }
+  .places__caption {
+    margin-bottom: 0;
+  }
+  .tours {
+    margin-bottom: 76px;
+  }
+  .tour__pic,
+  .tour_info {
+    grid-column: span 2;
+  }
+  .tour__pic {
+    margin-bottom: 12px;
+  }
+  .tour__pic_mob-first {
+    grid-row-start: -1;
+    /* Reversing the display order in the card */
+  }
+  .tours__tour {
+    margin-bottom: 50px;
+  }
+  .top {
+    margin-bottom: 76px;
+  }
+  .top__card {
+    grid-column: span 6;
+    /* See above */
+  }
+  .top__card-stats {
+    max-width: 386px;
+  }
+
+  .top__card-desc {
+    margin-bottom: 15px;
+  }
+  .footer__logo {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .footer__nav {
+    width: 100%;
+  }
+  .footer__menu {
+    width: 50%;
+    margin-bottom: 24px;
+  }
+}
+
+/* ----------------------------------------- 5000px -------------------------------------- */
+@media (max-width: 500px) {
+  .header__nav {
+    padding: 75px 30px;
   }
 }
